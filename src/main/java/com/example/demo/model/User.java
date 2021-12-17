@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +22,11 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.users = new ArrayList<>();
+        this.lectures = new ArrayList<>();
     }
 
     public User() {
-        this.users = new ArrayList<>();
+        this.lectures = new ArrayList<>();
     }
 
     public User(Long id, String name, String email, String password, List<Lecture> users) {
@@ -34,7 +34,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.users = users;
+        this.lectures = users;
     }
 
 
@@ -59,6 +59,17 @@ public class User {
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Lecture> users;
+    private List<Lecture> lectures;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", department=" + department +
+                ", users=" + lectures +
+                '}';
+    }
 }

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,22 @@ import java.util.List;
 @Getter
 @Setter
 public class Lecture {
+    public Lecture() {
+        this.participants = new ArrayList<>();
+    }
+
+    public Lecture(Long id, String name) {
+        this.id = id;
+        this.name = name;
+        this.participants = new ArrayList<>();
+    }
+
+    public Lecture(String name) {
+        this.id = 0l;
+        this.name = name;
+        this.participants = new ArrayList<>();
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +39,6 @@ public class Lecture {
     private String name;
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Lecture> lectures;
+    private List<User> participants;
 
 }
