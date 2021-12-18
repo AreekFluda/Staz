@@ -18,7 +18,6 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final LogInService logInService;
 
 
     @GetMapping
@@ -45,8 +44,12 @@ public class UserController {
 
     @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody User user) {
-        userService.updateUser(user);
-        return ResponseEntity.ok(user);
+        if (!userService.userExist(user.getEmail())) {
+            userService.updateUser(user);
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(user);
+        }
     }
 
 
