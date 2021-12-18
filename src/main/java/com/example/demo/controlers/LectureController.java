@@ -8,11 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/lecture")
-public class LectureControler {
+public class LectureController {
     private final LectureService lectureService;
 
     @GetMapping
