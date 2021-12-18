@@ -25,9 +25,10 @@ public class Lecture {
         this.participants = new ArrayList<>();
     }
 
-    public Lecture(String name) {
+    public Lecture(String name, String hour) {
         this.id = 0l;
         this.name = name;
+        this.hour = hour;
         this.participants = new ArrayList<>();
     }
 
@@ -37,6 +38,10 @@ public class Lecture {
     @NotNull
     @NotEmpty
     private String name;
+    @NotNull
+    @NotEmpty
+    private String hour;
+
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<User> participants;
