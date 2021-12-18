@@ -7,13 +7,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "participants")
 @Getter
 @Setter
 public class User {
@@ -49,10 +51,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    @NotBlank
     private String name;
     @NotNull
+    @Email
     private String email;
     @NotNull
+    @NotBlank
     private String password;
 
     private int department;
