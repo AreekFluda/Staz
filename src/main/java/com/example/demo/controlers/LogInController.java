@@ -17,6 +17,7 @@ public class LogInController {
     @PostMapping
     public ResponseEntity<User> getExactUser(@RequestBody User user) {
         if (logInService.userExist(user)) {
+            logInService.saveToFile(user.getEmail());
             return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(user);
