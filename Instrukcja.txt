@@ -1,0 +1,8 @@
+Adresy url
+http://localhost:8080/users
+http://localhost:8080/lectures
+
+
+
+Proszę najpierw wpisac dane dotyczace Panstwa bazy danych w pliku application.properties w folderze resources
+oraz uruchomiec projekt nastepnie uruchomic projekt w vue uzywajac komendy npm install oraz npm run serve.
