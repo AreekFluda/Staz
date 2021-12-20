@@ -1,7 +1,6 @@
-Adresy url
+Adresy url:
 http://localhost:8080/users
-http://localhost:8080/lectures
-
+http://localhost:8080/lecture
 
 
 Proszę najpierw wpisac dane dotyczace Panstwa bazy danych w pliku application.properties w folderze resources
