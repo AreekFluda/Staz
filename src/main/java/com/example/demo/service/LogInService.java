@@ -32,12 +32,12 @@ public class LogInService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateToFile = formatter.format(date);
         String text = "Account was created correctly";
-        File myObj = new File("src/main/mailFile.txt");
+        File myObj = new File("src/main/powiadomienia.txt");
         try {
             FileWriter fileWriter = new FileWriter(myObj);
-            fileWriter.write(dateToFile+'\n');
-            fileWriter.write(email+'\n');
-            fileWriter.write(text+"\n");
+            fileWriter.write(dateToFile + '\n');
+            fileWriter.write(email + '\n');
+            fileWriter.write(text + "\n");
             fileWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
