@@ -36,7 +36,7 @@ public class LectureController {
 
     @PutMapping
     public ResponseEntity<Lecture> updateLecture(@RequestBody Lecture lecture) {
-        lectureService.updateLecture(lectureService.saveLecture(lecture));
+        lectureService.updateLecture(lecture);
         return ResponseEntity.ok(lecture);
     }
 
