@@ -20,7 +20,6 @@ import java.util.List;
 @Setter
 public class User {
     public User(String name, String email, String password) {
-        this.id = 0l;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -60,7 +59,7 @@ public class User {
     @NotBlank
     private String password;
 
-    private int department;
+
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -73,7 +72,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", department=" + department +
                 ", users=" + lectures +
                 '}';
     }
